@@ -45,7 +45,7 @@ pipeline {
                 script {
                     echo "Archiving reports..."
                 }
-                archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'e2e/reports/**/*', allowEmptyArchive: true
             }
         }
     }
