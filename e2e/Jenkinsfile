@@ -11,35 +11,35 @@ pipeline {
             steps {
                 script {
                     echo 'Setting up environment...'
-                    bat echo 'npm ci' // Clean install dependencies
+                    bat 'npm ci' // Clean install dependencies
                 }
             }
         }
 
-    stage('Run Production Tests') {
+        stage('Run Production Tests') {
             steps {
                 script {
                     echo 'Running production tests with @dev tag...'
                 }
-                bat echo 'npm run cucumber:production -- --tags @dev'
+                bat 'npm run cucumber:production -- --tags @dev'
             }
         }
 
         stage('Generate Reports') {
             steps {
                 script {
-                    echo "Generating reports"
-                    bat echo 'npm run postcucumber'
+                    echo "Generating reports..."
                 }
+                bat 'npm run postcucumber'
             }
         }
 
         stage('Archive Results') {
             steps {
                 script {
-                    echo "Archiving reports"
-                    archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
+                    echo "Archiving reports..."
                 }
+                archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
             }
         }
     }
