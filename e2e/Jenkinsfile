@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     echo 'Setting up environment...'
-                    sh 'npm ci' // Clean install dependencies
+                    bat echo 'npm ci' // Clean install dependencies
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
                 script {
                     echo 'Running production tests with @dev tag...'
                 }
-                sh 'npm run cucumber:production -- --tags @dev'
+                bat echo 'npm run cucumber:production -- --tags @dev'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     echo "Generating reports"
-                    sh 'npm run postcucumber'
+                    bat echo 'npm run postcucumber'
                 }
             }
         }

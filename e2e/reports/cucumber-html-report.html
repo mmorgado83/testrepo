@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>Cucumber Feature Report</title>
-  <link rel="icon" href="https://www.lambdatest.com/favicon.ico">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <style type="text/css">
-    .panel-heading {
+  <head>
+    <title>Cucumber Feature Report</title>
+    <link rel="icon" href="https://www.lambdatest.com/favicon.ico" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" >
+    <style type="text/css">
+      .panel-heading {
     padding: 0;
 }
 
@@ -261,10 +260,6 @@ pre {
     color: #616161;
 }
 
-.stepname {
-    word-wrap: break-word;
-}
-
 .feature-passed {
     display: block;
 }
@@ -289,183 +284,121 @@ pre {
     min-width: 100%;
 }
 
-.ellipsis {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: all .2s linear;
-    white-space: nowrap;
-    padding:.5rem 1rem;
-}
-.ellipsis:focus, .ellipsis:hover {
-  color:transparent;
-}
-.ellipsis:focus:after,.ellipsis:hover:after{
-    content:attr(data-text);
-    overflow: visible;
-    text-overflow: inherit;
-    background: #fff;
-    position: absolute;
-    left:auto;
-    top:auto;
-    width: auto;
-    max-width: 100%;
-    border: 1px solid #eaebec;
-    padding: 0 .5rem;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.28);
-    white-space: normal;
-    word-wrap: break-word;
-    display:block;
-    color:black;
-    margin-top:-1.25rem;
-    z-index: 1;
-  }
 
-    /** Issue in google-charts tooltip - https://github.com/google/google-visualization-issues/issues/2162 */
-    .google-visualization-tooltip {
-      pointer-events: none;
-    }
-
-    .count-wrapper {
-      display: flex;
-      gap: 15px;
-    }
-
-    .card {
-      border: 1px solid #f5f5f5;
-      padding: 15px;
-      color: #fff;
-      border-radius: 5px;
-      flex: 1;
-    }
-
-    .generated-on {
-      margin-right: 10px;
-    }
-
-    .card h4 {
-      font-size: 15px;
-    }
-
-    .red-box {
-      background: #d9534e;
-    }
-
-    .blue-box {
-      background: #0074ff;
-    }
-
-    .yellow-box {
-      background: #f0ad4e;
-    }
-
-    .saffron-box {
-      background: #ff9933;
-    }
-
-    .green-box {
-      background: #5cb85b;
-    }
-
-    .gray-box {
-      background: #999;
-    }
-
-    .amb-box {
-      background: #218bcf;
-    }
-
-    .undefined-box {
-      background: #22c2e2;
-    }
-
-    .mb-20px {
-      margin-bottom: 20px;
-    }
-  </style>
-  <meta charset="UTF-8">
-</head>
-
-<body>
-
-  <div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        
-          <a class="navbar-brand">
-            Cucumberjs Report
-          </a>
-          <div class="project-name visible-md visible-lg">
-            e2e
-          </div>
-          <div class="label-container">
-            <div class="generated-on">
-              Fri Jan 24 2025 12:31:16 GMT+0000 (Western European Standard Time)
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-
-    <div class="count-wrapper mb-20px">
-      <div class="card blue-box">
-        <div class="feature-title">
-          <h4>All Scenarios</h2>
-        </div>
-        <div class="feature-value">
-          <h5>
-            1
-          </h5>
-        </div>
-      </div>
-      <div class="card green-box">
-        <div class="feature-title">
-          <h4>Passed Scenarios</h2>
-        </div>
-        <div class="feature-value">
-          <h5>
-            1
-          </h5>
-        </div>
-      </div>
-      <div class="card red-box">
-        <div class="feature-title">
-          <h4>Failed Scenarios</h2>
-        </div>
-        <div class="feature-value">
-          <h5>
-            0
-          </h5>
-        </div>
-      </div>
+/** Issue in google-charts tooltip - https://github.com/google/google-visualization-issues/issues/2162 */
+.google-visualization-tooltip { pointer-events:none; }
       
-          
-              
-                  
-                      
-    </div>
-    <div class="row">
-      <div class="chart col-lg-6 col-md-6" id="piechart_features"></div>
-      <div class="chart col-lg-6 col-md-6" id="piechart_scenarios"></div>
-    </div>
+.count-wrapper{
+  display: flex;
+  gap: 15px;
+}
+.card{
+  border: 1px solid #f5f5f5;
+  padding: 15px;
+  color: #fff;
+  border-radius: 5px;
+  flex: 1;
+}
+.generated-on{
+  margin-right: 10px;
+}
+.card h4{
+  font-size: 15px;
+}
+.red-box{
+  background: #d9534e;
+}
+.blue-box{
+  background: #0074ff;
+}
+.yellow-box{
+  background: #f0ad4e;
+}
+.saffron-box{
+  background: #ff9933;
+}
+.green-box{
+  background: #5cb85b;
+}
+.gray-box{
+  background: #999;
+}
+.amb-box{
+  background: #218bcf;
+}
+.undefined-box{
+  background: #22c2e2;
+}
+.mb-20px{
+  margin-bottom: 20px;
+}
+    </style>
+    <meta charset="UTF-8">
+  </head>
+  <body>
 
-    <div>
-      <p class="text-left">
-        Execution Time: 8s 833ms
-      </p>
-      <p class="text-right">
-        <a id="expand_all">Expand All</a>
-        <span> | </span>
-        <a id="collapse_all">Collapse All</a>
-      </p>
-    </div>
-
-    
-
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
         
+          <a class="navbar-brand">Cucumberjs Report</a>
+          <div class="project-name visible-md visible-lg">e2e</div>
+          <div class="label-container">
+                <div class="generated-on">
+                  Fri Jan 24 2025 15:48:31 GMT+0000 (Western European Standard Time)
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="count-wrapper mb-20px">
+        <div class="card blue-box">
+          <div class="feature-title">
+            <h4>All Scenarios</h2>
+          </div>
+          <div class="feature-value">
+            <h5>
+              1
+            </h5>
+          </div>
+        </div>
+        <div class="card green-box">
+          <div class="feature-title">
+            <h4>Passed Scenarios</h2>
+          </div>
+          <div class="feature-value">
+            <h5>
+              1
+            </h5>
+          </div>
+        </div>
+        <div class="card red-box">
+          <div class="feature-title">
+            <h4>Failed Scenarios</h2>
+          </div>
+          <div class="feature-value">
+            <h5>
+              0
+            </h5>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      <div class="row">
+        <div class="chart col-lg-6 col-md-6" id="piechart_features"></div>
+        <div class="chart col-lg-6 col-md-6" id="piechart_scenarios"></div>
+      </div>
+
+      
+
+      
 
 
 <div class="row" xmlns="http://www.w3.org/1999/html">
@@ -481,16 +414,11 @@ pre {
                     <div class="tags">
                     </div>
                     
-                    <a data-toggle="collapse" href="#collapseFeaturee2e9e8c85b5-192f-49da-870b-0ead2ec878ae">
+                    <a data-toggle="collapse" href="#collapseFeaturee2ee8a754fd-0791-4c5a-9c86-37505aee39f2">
                         <i class="glyphicon glyphicon-chevron-right"></i>
                         <i class="glyphicon glyphicon-chevron-down"></i>
                         <b>Feature:</b>As a user I can intercept a REST api and mock the response
                         <span class="label-container">
-
-                        
-
-                        <span>8s 833ms</span>
-                                
               <span class="label label-success"
                                                          title="1 Scenarios Passed">1</span>
               
@@ -502,7 +430,7 @@ pre {
                     </a>
                 </h4>
             </div>
-            <div id="collapseFeaturee2e9e8c85b5-192f-49da-870b-0ead2ec878ae" class="panel-collapse collapse">
+            <div id="collapseFeaturee2ee8a754fd-0791-4c5a-9c86-37505aee39f2" class="panel-collapse collapse">
                 <div class="panel-body">
                     
                     
@@ -518,17 +446,16 @@ pre {
                                     
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioe2e2e58b4d9-2aeb-4285-9483-3e7234175fda">
+                                <a data-toggle="collapse" href="#collapseScenarioe2ef4b927ae-6214-46bd-8d8a-027b8847cb38">
                                     <div>
 
                                         <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b><div class="ellipsis" data-text="As a user I can mock a single user">As a user I can mock a single user</div>
+                                            <b>Scenario:</b>As a user I can mock a single user
                                         </div>
                                         <div>
                             <span class="label-container ">
-                                <span>8s 833ms</span>
                               
                               <span class="label label-success"
                                                                title="6 Steps Passed">6</span>
@@ -544,7 +471,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioe2e2e58b4d9-2aeb-4285-9483-3e7234175fda"
+                        <div id="collapseScenarioe2ef4b927ae-6214-46bd-8d8a-027b8847cb38"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -563,11 +490,11 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Given </span>
-                          <span class="stepname"> I am on the &quot;home&quot; page</span>
+                          <span> I am on the &quot;home&quot; page</span>
                             
                           
                               <span class="step-duration">
-                               5s 867ms
+                               5s 987ms
                               </span>
                             
                          
@@ -601,11 +528,11 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">And </span>
-                          <span class="stepname"> the &quot;api&quot; endpoint for &quot;users&quot; is mocked with &quot;single user&quot;</span>
+                          <span> the &quot;api&quot; endpoint for &quot;users&quot; is mocked with &quot;single user&quot;</span>
                             
                           
                               <span class="step-duration">
-                               11ms
+                               17ms
                               </span>
                             
                          
@@ -639,11 +566,11 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">When </span>
-                          <span class="stepname"> I click the &quot;playground&quot; button</span>
+                          <span> I click the &quot;playground&quot; button</span>
                             
                           
                               <span class="step-duration">
-                               1s 4ms
+                               980ms
                               </span>
                             
                          
@@ -677,7 +604,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">And </span>
-                          <span class="stepname"> I am directed to the &quot;playground&quot; page</span>
+                          <span> I am directed to the &quot;playground&quot; page</span>
                             
                           
                               <span class="step-duration">
@@ -715,11 +642,11 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Then </span>
-                          <span class="stepname"> the &quot;1st&quot; &quot;full name&quot; should not contain the text &quot;Leanne Graham&quot;</span>
+                          <span> the &quot;1st&quot; &quot;full name&quot; should not contain the text &quot;Leanne Graham&quot;</span>
                             
                           
                               <span class="step-duration">
-                               1s 913ms
+                               1s 916ms
                               </span>
                             
                          
@@ -753,11 +680,11 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">And </span>
-                          <span class="stepname"> the &quot;1st&quot; &quot;full name&quot; should contain the text &quot;Todd Smith&quot;</span>
+                          <span> the &quot;1st&quot; &quot;full name&quot; should contain the text &quot;Todd Smith&quot;</span>
                             
                           
                               <span class="step-duration">
-                               32ms
+                               18ms
                               </span>
                             
                          
@@ -797,46 +724,38 @@ pre {
 
 
 
-          
-  </div>
+    </div>
 
 
-
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript">
-    google.load("visualization", "1", { packages: ["corechart"] });
-    google.setOnLoadCallback(function () {
-      drawChart({
-        "title": "Features",
-        "failed": 0,
-        "passed": 1,
-        "notdefined": 0,
-        "pending": 0,
-        "skipped": 0,
-        "ambiguous": 0
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(function() {drawChart({
+                                                            "title" : "Features",
+                                                            "failed" : 0,
+                                                            "passed" : 1,
+                                                            "notdefined" : 0,
+                                                            "pending" : 0,
+                                                            "skipped" : 0,
+                                                            "ambiguous" : 0
                                                         })
-    });
-    google.setOnLoadCallback(function () {
-      drawChart({
-        "title": "Scenarios",
-        "failed": 0,
-        "passed": 1,
-        "rerun": 0,
-        "notdefined": 0,
-        "pending": 0,
-        "skipped": 0,
-        "ambiguous": 0
+                                            });
+        google.setOnLoadCallback(function() {drawChart({
+                                                            "title" : "Scenarios",
+                                                            "failed" : 0,
+                                                            "passed" : 1,
+                                                            "rerun" : 0,
+                                                            "notdefined" : 0,
+                                                            "pending" : 0,
+                                                            "skipped" : 0,
+                                                            "ambiguous" : 0
                                                         })
-    });
-  </script>
-  <script>
+                                            });
+    </script>
+    <script>
       $(document).ready(function () {
   $('.collapse')
     .on('hide.bs.collapse', function (e) {
@@ -853,28 +772,6 @@ pre {
   let timestamp = $generated.text();
   $generated.text('Report generated ' + moment(timestamp).fromNow());
   $generated.prop('title', new Date(timestamp).toISOString());
-});
-
-$(document).ready(function () {
-  const $collapsibleItems = $('[data-toggle="collapse"]');
-  const $collapseAllBtn = $('#collapse_all');
-  const $expandAllBtn = $('#expand_all');
-
-  const collapseAll = function () {
-    $collapsibleItems.each(function () {
-      $($(this).attr('href')).collapse('hide');
-    });
-  };
-
-  const expandAll = function () {
-    $collapsibleItems.each(function () {
-      $($(this).attr('href')).collapse('show');
-    });
-  };
-
-  $collapseAllBtn.on('click', collapseAll);
-  $expandAllBtn.on('click', expandAll);
-
 });
 
 function toggle(className) {
@@ -963,7 +860,6 @@ function toggle(className) {
   }
 });
 
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
