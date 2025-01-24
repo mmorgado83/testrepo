@@ -29,17 +29,16 @@ pipeline {
             }
         }
 
-stage('Generate Reports') {
-    steps {
-        script {
-            echo "Generating reports..."
+        stage('Generate Reports') {
+            steps {
+                script {
+                    echo "Generating reports..."
+                }
+                dir('e2e') {
+                    bat 'npm run postcucumber'
+                }
+            }
         }
-        dir('e2e') {
-            bat 'npm run postcucumber'
-        }
-    }
-}
-}
 
         stage('Archive Results') {
             steps {
@@ -69,3 +68,4 @@ stage('Generate Reports') {
         }
     }
 }
+
