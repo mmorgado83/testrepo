@@ -1,20 +1,17 @@
 pipeline {
     agent any
-
-    environment {
-        COMMON_CONFIG_FILE = "env/common.env"
-        NODE_ENV = "production"
-    }
-
     stages {
-        stage('Setup') {
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
             steps {
                 script {
-                    echo 'Setting up environment...'
-                    // Change directory to the e2e folder
-                    dir('e2e') {
-                        bat 'npm ci' // Install dependencies in the e2e folder
-                    }
+                    // Install dependencies
+                    bat 'npm ci'
                 }
             }
         }
@@ -22,9 +19,9 @@ pipeline {
         stage('Run Production Tests') {
             steps {
                 script {
-                    echo 'Running production tests with @dev tag...'
+                    // Explicitly run the .bat file with the required arguments
+                    bat '.\\run_tests.bat production dev'
                 }
-                bat 'npm run cucumber:production -- --tags @dev'
             }
         }
 
