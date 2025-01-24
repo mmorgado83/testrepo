@@ -11,7 +11,10 @@ pipeline {
             steps {
                 script {
                     echo 'Setting up environment...'
-                    bat 'npm ci' // Clean install dependencies
+                    // Change directory to the e2e folder
+                    dir('e2e') {
+                        bat 'npm ci' // Install dependencies in the e2e folder
+                    }
                 }
             }
         }
