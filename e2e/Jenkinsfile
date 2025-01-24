@@ -7,22 +7,24 @@ pipeline {
             }
         }
 
-    stage('Install Dependencies') {
-        steps {
-            script {
-            // Navigate to the e2e folder and run npm ci
-            dir('e2e') {
-                bat 'npm ci'
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Navigate to the e2e folder and run npm ci
+                    dir('e2e') {
+                        bat 'npm ci'
+                    }
+                }
             }
         }
-    }
-}
 
         stage('Run Production Tests') {
             steps {
                 script {
-                    // Explicitly run the .bat file with the required arguments
-                    bat '.\\run_tests.bat production dev'
+                    // Change the directory to 'e2e' before running the batch file
+                    dir('e2e') {
+                        bat '.\\run_tests.bat production dev'
+                    }
                 }
             }
         }
