@@ -29,14 +29,17 @@ pipeline {
             }
         }
 
-        stage('Generate Reports') {
-            steps {
-                script {
-                    echo "Generating reports..."
-                }
-                bat 'npm run postcucumber'
-            }
+stage('Generate Reports') {
+    steps {
+        script {
+            echo "Generating reports..."
         }
+        dir('e2e') {
+            bat 'npm run postcucumber'
+        }
+    }
+}
+}
 
         stage('Archive Results') {
             steps {
