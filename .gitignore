@@ -22,3 +22,22 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 node_modules/
+
+
+# Ignore BlazeMeter configuration files
+.bzt-rc           # BlazeMeter configuration file
+*.bzt-rc          # Any other .bzt-rc files (if present)
+
+# Ignore BlazeMeter results and logs
+*.jtl             # Test result files (BlazeMeter uses JTL for result format)
+*.xml             # BlazeMeter might generate XML report files
+*.json            # BlazeMeter might generate JSON report files
+result-*.tar.gz   # Archive of results
+logs/             # BlazeMeter log files
+output/           # Output folder from BlazeMeter tests
+reports/          # Folder for report files
+tmp/              # Temporary files created by BlazeMeter
+
+# Ignore BlazeMeter virtual environment (if it's installed within your project)
+venv/             # Virtual environment directory (if created in your project)
+env/              # Alternative virtual environment directory
