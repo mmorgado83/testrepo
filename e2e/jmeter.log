@@ -1,0 +1,16 @@
+2025-01-24 15:06:33,537 INFO o.j.r.PluginManagerCMD: Command is: install-for-jmx
+2025-01-24 15:06:33,614 INFO o.j.r.JARSourceHTTP: Found cached repo
+2025-01-24 15:06:33,816 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.10, jmeter-core=5.6.3, jmeter-ftp=5.6.3, jmeter-http=5.6.3, jmeter-jdbc=5.6.3, jmeter-jms=5.6.3, jmeter-junit=5.6.3, jmeter-java=5.6.3, jmeter-ldap=5.6.3, jmeter-mail=5.6.3, jmeter-mongodb=5.6.3, jmeter-native=5.6.3, jmeter-tcp=5.6.3, jmeter-components=5.6.3]
+2025-01-24 15:06:33,819 INFO o.j.r.PluginManagerCMD: Params line is: C:\Users\mmorga03\bzt-artifacts\2025-01-24_15-06-31.014773\modified_requests.jmx
+2025-01-24 15:06:34,063 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2025-01-24 15:06:34,079 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2025-01-24 15:06:34,084 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2025-01-24 15:06:34,116 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2025-01-24 15:06:34,120 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2025-01-24 15:06:34,154 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-01-24 15:06:34,154 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-01-24 15:06:34,154 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-01-24 15:06:34,154 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-01-24 15:06:34,154 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2025-01-24 15:06:34,154 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2025-01-24 15:06:34,222 INFO o.j.r.PluginManager: Finishing without changes

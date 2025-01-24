@@ -1,0 +1,61 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define any environment variables if needed
+        // For example, you can set the environment and tag here
+        ENV = 'production'  // Change this to the environment you want (e.g., 'prod', 'staging', etc.)
+        TAG = 'dev'  // Change this to the desired tag (e.g., 'regression', 'smoke', etc.)
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from your Git repository
+                git branch: 'main', url: 'https://github.com/mmorgado83/testrepo.git'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run your custom batch script with environment and tag
+                bat """
+                    :: environment tag
+                    set env=%ENV%
+                    set tag=%TAG%
+
+                    :: Set the COMMON_CONFIG_FILE variable to point to the common environment configuration file
+                    set COMMON_CONFIG_FILE=env/common.env
+                    set NODE_ENV=%env%
+
+                    :: Run cucumber tests & on failure run postcucumber
+                    npm run cucumber:%env% -- --profile %tag% & npm run postcucumber
+                """
+            }
+        }
+
+        stage('Archive Results') {
+            steps {
+                // Archive test results and logs from the test run
+                archiveArtifacts allowEmptyArchive: true, artifacts: '**/test-results/**/*'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up any resources if necessary
+            echo 'Cleaning up after tests...'
+        }
+
+        success {
+            // Actions to take when tests are successful
+            echo 'Tests passed!'
+        }
+
+        failure {
+            // Actions to take when tests fail
+            echo 'Tests failed!'
+        }
+    }
+}
