@@ -3,7 +3,6 @@ pipeline {
     environment {
         // Ensure the BlazeMeter API token and other relevant paths are set in the environment variables
         BLAZEMETER_API_TOKEN = '05ac8bcf496baefe832fe174:84b5d4c31c8eb0b59d2cfd0d4b1ea2c14ed4aaf0358a3b967920ce04f765356bba685aab'  // Replace with actual token
-        BLAZEMETER_CONFIG_PATH = 'e2e/blazemeter-config.yml'  // Path to your BlazeMeter config
         BLAZEMETER_RC_PATH = 'C:\\Users\\mmorga03\\.bzt-rc'  // Path to your .bzt-rc file (adjust for your Jenkins environment)
         BLAZEMETER_BIN_PATH = 'C:\\Users\\mmorga03\\.bzt\\jmeter-taurus\\5.5\\bin'  // Adjust to where 'bzt' is installed on Jenkins agent
     }
@@ -48,6 +47,38 @@ pipeline {
                 }
             }
         }
+
+           stage('Install Dependencies') {
+            steps {
+                script {
+                    // Navigate to the e2e folder and run npm ci
+                    dir('e2e') {
+                        bat 'npm ci'
+                    }
+                }
+            }
+        }
+        stage('Run Production Tests') {
+            steps {
+                script {
+                    // Change the directory to 'e2e' before running the batch file
+                    dir('e2e') {
+                        bat '.\\run_tests.bat production dev'
+                    }
+                }
+            }
+        }
+        stage('Generate Reports') {
+            steps {
+                script {
+                    echo "Generating reports..."
+                }
+                dir('e2e') {
+                    bat 'npm run postcucumber'
+                }
+            }
+        }
+
 
         stage('Archive Results') {
             steps {
