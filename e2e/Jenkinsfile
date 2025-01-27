@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         // Ensure the BlazeMeter API token and other relevant paths are set in the environment variables
-        BLAZEMETER_API_TOKEN = '05ac8bcf496baefe832fe174:84b5d4c31c8eb0b59d2cfd0d4b1ea2c14ed4aaf0358a3b967920ce04f765356bba685aab'  // Replace with actual token
         BLAZEMETER_RC_PATH = 'C:\\Users\\mmorga03\\.bzt-rc'  // Path to your .bzt-rc file (adjust for your Jenkins environment)
         BLAZEMETER_BIN_PATH = 'C:\\Users\\mmorga03\\.bzt\\jmeter-taurus\\5.5\\bin'  // Adjust to where 'bzt' is installed on Jenkins agent
     }
@@ -48,16 +47,24 @@ pipeline {
             }
         }
 
-           stage('Install Dependencies') {
+        // Caching dependencies: Check if node_modules are cached
+        stage('Install Dependencies') {
             steps {
                 script {
-                    // Navigate to the e2e folder and run npm ci
                     dir('e2e') {
-                        bat 'npm ci'
+                        // Check if node_modules already exists in the workspace
+                        if (fileExists('node_modules')) {
+                            echo 'node_modules exists, skipping npm ci...'
+                        } else {
+                            echo 'Installing dependencies...'
+                            bat 'npm ci'
+                            stash name: 'node_modules', includes: 'node_modules/**'
+                        }
                     }
                 }
             }
         }
+        
         stage('Run Production Tests') {
             steps {
                 script {
