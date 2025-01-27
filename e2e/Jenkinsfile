@@ -13,46 +13,22 @@ pipeline {
                 checkout scm
             }
         }
-/*
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    // Navigate to the e2e folder and run npm ci
-                    dir('e2e') {
-                        bat 'npm ci'
-                    }
-                }
-            }
-        }
 
-        stage('Run Production Tests') {
-            steps {
-                script {
-                    // Change the directory to 'e2e' before running the batch file
-                    dir('e2e') {
-                        bat '.\\run_tests.bat production dev'
-                    }
-                }
-            }
-        }
-
-        stage('Generate Reports') {
-            steps {
-                script {
-                    echo "Generating reports..."
-                }
-                dir('e2e') {
-                    bat 'npm run postcucumber'
-                }
-            }
-        }
-*/
         stage('Setup BlazeMeter Config') {
             steps {
                 script {
                     echo "Setting up BlazeMeter config and environment..."
                     // Ensure the .bzt-rc file is copied to the correct location
                     bat "copy C:\\Users\\mmorga03\\.bzt-rc ${env.WORKSPACE}\\.bzt-rc"
+
+                    // Check if BlazeMeter (bzt) is installed, and install it if not
+                    def bztCheck = bat(script: 'where bzt', returnStatus: true)
+                    if (bztCheck != 0) {
+                        echo 'BlazeMeter (bzt) not found, installing...'
+                        bat 'pip install bzt'
+                    } else {
+                        echo 'BlazeMeter (bzt) is already installed.'
+                    }
                 }
             }
         }
@@ -102,5 +78,3 @@ pipeline {
         }
     }
 }
-
-
