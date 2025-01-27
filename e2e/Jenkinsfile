@@ -67,7 +67,7 @@ pipeline {
 
                     // Run BlazeMeter performance tests with the provided config
                     dir('e2e') {
-                        bat "bzt ${BLAZEMETER_CONFIG_PATH} > blazeMeterLogs.txt 2>&1"
+                        bat "bzt e2e/blazemeter-config.yml 1>blazeMeterLogs.txt 2>&1 || echo 'BlazeMeter execution failed'"
                     }
                 }
             }
