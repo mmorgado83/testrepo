@@ -1,12 +1,19 @@
 pipeline {
     agent any
+    environment {
+        // Ensure the BlazeMeter API token and other relevant paths are set in the environment variables
+        BLAZEMETER_API_TOKEN = '05ac8bcf496baefe832fe174:84b5d4c31c8eb0b59d2cfd0d4b1ea2c14ed4aaf0358a3b967920ce04f765356bba685aab'  // Replace with actual token
+        BLAZEMETER_CONFIG_PATH = 'e2e/blazemeter-config.yml'  // Path to your BlazeMeter config
+        BLAZEMETER_RC_PATH = 'C:\\Users\\mmorga03\\.bzt-rc'  // Path to your .bzt-rc file (adjust for your Jenkins environment)
+        BLAZEMETER_BIN_PATH = 'C:\\Users\\mmorga03\\.bzt\\jmeter-taurus\\5.5\\bin'  // Adjust to where 'bzt' is installed on Jenkins agent
+    }
     stages {
         stage('Checkout SCM') {
             steps {
                 checkout scm
             }
         }
-
+/*
         stage('Install Dependencies') {
             steps {
                 script {
@@ -39,13 +46,40 @@ pipeline {
                 }
             }
         }
+*/
+        stage('Setup BlazeMeter Config') {
+            steps {
+                script {
+                    echo "Setting up BlazeMeter config and environment..."
+                    // Ensure the .bzt-rc file is copied to the correct location
+                    bat "copy C:\\Users\\mmorga03\\.bzt-rc ${env.WORKSPACE}\\.bzt-rc"
+                }
+            }
+        }
+
+        stage('Run Performance Tests') {
+            steps {
+                script {
+                    echo "Running performance tests with BlazeMeter..."
+                    
+                    // Ensure BlazeMeter CLI is accessible
+                    bat "set PATH=%PATH%;${BLAZEMETER_BIN_PATH}"
+
+                    // Run BlazeMeter performance tests with the provided config
+                    dir('e2e') {
+                        bat "bzt ${BLAZEMETER_CONFIG_PATH} > blazeMeterLogs.txt 2>&1"
+                    }
+                }
+            }
+        }
 
         stage('Archive Results') {
             steps {
                 script {
                     echo "Archiving reports..."
                 }
-                archiveArtifacts artifacts: 'e2e/reports/**/*', allowEmptyArchive: true
+                // Archive reports and BlazeMeter logs for later inspection
+                archiveArtifacts artifacts: 'e2e/reports/**/*, e2e/blazeMeterLogs.txt', allowEmptyArchive: true
             }
         }
     }
@@ -68,4 +102,5 @@ pipeline {
         }
     }
 }
+
 
